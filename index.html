@@ -16,6 +16,19 @@
       context.fillRect(0, 0, 150, 100);
 
       context.fillText("Hello, Canvas!", 155, 110);
+
+      context.beginPath();
+
+      context.moveTo(0, 100);
+      context.lineTo(300, 100);
+      context.moveTo(150, 0);
+      context.lineTo(150, 200);
+
+      context.rect(0, 0, 300, 200);
+
+      context.stroke();
+
+      context.closePath();
     </script>
   </body>
 </html>
