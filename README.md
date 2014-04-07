@@ -1,4 +1,4 @@
-html5andapi
+HTML5 &amp; API
 ===========
 
-HTML5 &amp; API copy write
+このリポジトリはHTML5&API入門で使用したコードの保管場所です。
