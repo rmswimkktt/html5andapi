@@ -110,7 +110,53 @@
 
     <canvas id="canvas6" width="300", height="300"></canvas>
     <script>
-      var canvas = document.getElementById("canvas5");
+      var canvas = document.getElementById("canvas6");
+      var cx = canvas.getContext("2d");
+
+      var g = cx.createLinearGradient(0, 0, 200, 0);
+      g.addColorStop(0, "white");
+      g.addColorStop(1, "black");
+      cx.fillStyle = g;
+      cx.fillRect(0, 0, 150, 150);
+
+      cx.fillRect(50, 50, 200, 200);
+    </script>
+    <br>
+
+    <canvas id="canvas7" width="300", height="300"></canvas>
+    <script>
+      var canvas = document.getElementById("canvas7");
+      var cx = canvas.getContext("2d");
+
+      var g = cx.createRadialGradient(90, 90, 0, 50, 50, 200);
+      g.addColorStop(0, "white");
+      g.addColorStop(1, "black");
+      cx.fillStyle = g;
+
+      cx.arc(100, 100, 50, 0, 2 * Math.PI, true);
+      cx.fill();
+    </script>
+    <br>
+
+    <canvas id="canvas8" width="800", height="300"></canvas>
+    <script>
+      var canvas = document.getElementById("canvas8");
+      var cx = canvas.getContext("2d");
+
+      var image = new Image();
+
+      image.onload = function() {
+        var pattern = cx.createPattern(image, "repeat");
+        cx.fillStyle = pattern;
+        cx.fillRect(0, 0, 800, 300);
+      };
+      image.src = "html5.png";
+    </script>
+    <br>
+
+    <canvas id="canvas9" width="300", height="300"></canvas>
+    <script>
+      var canvas = document.getElementById("canvas8");
       var cx = canvas.getContext("2d");
     </script>
     <br>
