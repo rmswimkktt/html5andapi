@@ -42,5 +42,21 @@
       context2.fillText(canvas2.width, canvas2.width - 30, 20);
       context2.fillText(canvas2.height, 0, canvas2.height);
     </script>
+    <br>
+    drawImageによる表示<br>
+    <canvas id="canvas3" width="128" height="128"></canvas>
+    <script>
+      var canvas3 = document.getElementById("canvas3");
+      var context3 = canvas3.getContext("2d");
+
+      var image = new Image();
+      image.onload = function() {
+        context3.drawImage(image, 0, 0, canvas3.width, canvas3.height);
+      };
+      image.src = "html5.png";
+    </script>
+    <br>
+    imgタグによる表示<br>
+    <img src="html5.png"><br>
   </body>
 </html>
