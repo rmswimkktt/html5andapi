@@ -58,5 +58,21 @@
     <br>
     imgタグによる表示<br>
     <img src="html5.png"><br>
+    <canvas id="canvas4" width="800" height="800"></canvas>
+    <script>
+      var canvas4 = document.getElementById("canvas4");
+      var context = canvas4.getContext("2d");
+
+      context.beginPath();
+      context.moveTo(0, 0);
+      context.quadraticCurveTo(50, 100, 100, 0);
+      context.stroke();
+
+      context.beginPath();
+      context.moveTo(0, 200);
+      context.bezierCurveTo(0, 300, 100, 200, 100, 300);
+      context.stroke();
+    </script>
+    <br>
   </body>
 </html>
