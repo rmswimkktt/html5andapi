@@ -244,6 +244,25 @@
     <script>
       var canvas = document.getElementById("canvas14");
       var cx = canvas.getContext("2d");
+
+      cx.fillText("こんにちは", 30, 30);
+      cx.save();
+      cx.scale(2, 1.5);
+      cx.fillText("こんにちは、scale()", 30, 30);
+
+      cx.restore();
+
+      cx.save();
+      var angle = 20 * Math.PI /180;
+
+      cx.rotate(angle);
+      cx.fillText("こんにちは、rotate()", 30, 30);
+      cx.restore();
+      cx.save();
+
+      cx.translate(50, 50);
+      cx.fillText("こんにちは、translate()", 30, 30);
+      cx.restore();
     </script>
     <br>
 
