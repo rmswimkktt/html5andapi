@@ -182,6 +182,24 @@
     <script>
       var canvas = document.getElementById("canvas11");
       var cx = canvas.getContext("2d");
+
+      var message = "こんにちは";
+      var textHeight = 32;
+      cx.font = textHeight + 'px "ヒラギノ角ゴ Pro"';
+      var textWidth = cx.measureText(message).width;
+
+      cx.fillStyle = "pink";
+      cx.fillRect(0, 0, textWidth, textHeight);
+      cx.fillStyle = "black";
+      cx.textBaseline = "bottom";
+      cx.fillText(message, 0, textHeight);
+    </script>
+    <br>
+
+    <canvas id="canvas12" width="300", height="300"></canvas>
+    <script>
+      var canvas = document.getElementById("canvas12");
+      var cx = canvas.getContext("2d");
     </script>
     <br>
   </body>
