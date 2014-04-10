@@ -168,6 +168,20 @@
     <script>
       var canvas = document.getElementById("canvas10");
       var cx = canvas.getContext("2d");
+
+      cx.shadowOffsetX = 5;
+      cx.shadowOffsetY = 5;
+      cx.shadowColor = "gray";
+      cx.shadowBlur = 2;
+      cx.fillRect(10, 10, 50, 50);
+
+    </script>
+    <br>
+
+    <canvas id="canvas11" width="300", height="300"></canvas>
+    <script>
+      var canvas = document.getElementById("canvas11");
+      var cx = canvas.getContext("2d");
     </script>
     <br>
   </body>
