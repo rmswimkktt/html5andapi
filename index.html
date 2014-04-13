@@ -225,11 +225,11 @@
     <canvas id="canvas13" width="300", height="300"></canvas>
     <script>
       var canvas13 = document.getElementById("canvas13");
-      var cx1.= canvas13.getContext("2d");
+      var cx1 = canvas13.getContext("2d");
 
       var image13 = new Image();
 
-      image13.onload = function13() {
+      image13.onload = function() {
         cx1.drawImage(image13, 0, 0);
 
         cx1.globalAlpha = .3;
@@ -269,6 +269,30 @@
     <canvas id="canvas15" width="300", height="300"></canvas>
     <script>
       var canvas = document.getElementById("canvas15");
+      var cx = canvas.getContext("2d");
+
+      //x, y, w, hで指定された範囲の透明度を、alphaで指定された値に変更する
+      //alphaには0.0〜1.0の値を指定することが出来る
+      function alphaRect(context, alpha, x, y, w, h) {
+        //キャンバスから画像データを取得
+        var imageData = context.getImageData(x, y, w, h);
+        //ビットマップを走査
+        for (var i = 0; i < imageData.data.length; i++) {
+          //透明度を変更
+          if (i % 4 == 3) {
+            //ピクセル操作の場合は透明度も0〜255の範囲で指定する
+            imageData.data[i] = 255 * alpha;
+          }
+        }
+        //変更後のビットマップをキャンバスに書き出す
+        cx.putImageData(imageData, x, y);
+      }
+    </script>
+    <br>
+
+    <canvas id="canvas16" width="300", height="300"></canvas>
+    <script>
+      var canvas = document.getElementById("canvas16");
       var cx = canvas.getContext("2d");
     </script>
     <br>
