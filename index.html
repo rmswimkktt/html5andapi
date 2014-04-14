@@ -1,35 +1,61 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset=utf-8>
     <title>Sample page</title>
   </head>
-  <body>
-    <h1>Sample page</h1>
-    <p>This is a <a href="demo.html">simple</a> sample.</p>
+  <body onload="can1()">
+    <h1>第2章〜第3章</h1>
     <!-- this is a comment -->
-    <canvas id="canvas1" width="300" height="200"></canvas>
-    <script>
-      var canvas = document.getElementById("canvas1");
-      var context = canvas.getContext("2d");
+    A 
+    X:<input type="range" name="num1-1" min="0" max="400" value="50" onchange="num1_1(this.value)"><span id="val1-1">50</span>
+    Y:<input type="range" name="num1-2" min="0" max="400" value="50" onchange="num1_2(this.value)"><span id="val1-2">50</span><br>
+    B 
+    X:<input type="range" name="num1-3" min="0" max="400" value="200" onchange="num1_3(this.value)"><span id="val1-3">200</span>
+    Y:<input type="range" name="num1-4" min="0" max="400" value="100" onchange="num1_4(this.value)"><span id="val1-4">100</span><br>
+    C 
+    X:<input type="range" name="num1-5" min="0" max="400" value="200" onchange="num1_5(this.value)"><span id="val1-5">200</span>
+    Y:<input type="range" name="num1-6" min="0" max="400" value="200" onchange="num1_6(this.value)"><span id="val1-6">200</span><br>
+    <canvas id="canvas1" width="800" height="400"></canvas>
+    <script type="text/javascript">
+      var x = [50, 200, 200];
+      var y = [50, 100, 200];
+      function can1(){
+        var canvas1 = document.getElementById("canvas1");
+        var context1 = canvas1.getContext("2d");
 
-      //四角形の描画
-      context.fillRect(0, 0, 150, 100);
+        context1.clearRect(0, 0, 800, 400);
+        context1.strokeRect(0, 0, 400, 400);
 
-      context.fillText("Hello, Canvas!", 155, 110);
+        context1.beginPath();
+        context1.moveTo(x[0], y[0]);
+        context1.lineTo(x[1], y[1]);
+        context1.lineTo(x[2], y[2]);
 
-      context.beginPath();
+        context1.closePath();
 
-      context.moveTo(0, 100);
-      context.lineTo(300, 100);
-      context.moveTo(150, 0);
-      context.lineTo(150, 200);
+        var textHeight = 16;
+        context1.font = textHeight + 'px "ヒラギノ角ゴ Pro"';
 
-      context.rect(0, 0, 300, 200);
-
-      context.stroke();
-
-      context.closePath();
+        context1.fillText("A(" + x[0] + ", " + y[0] + ")", x[0] - 30, y[0] - 10);
+        context1.fillText("B(" + x[1] + ", " + y[1] + ")", x[1] - 30, y[1] - 10);
+        context1.fillText("C(" + x[2] + ", " + y[2] + ")", x[2] - 30, y[2] - 10);
+        context1.fillText("var canvas1 = document.getElementById(\"canvas1\")", 430, 20);
+        context1.fillText("var context1 = canvas1.getContext(\"2d\")", 430, 40);
+        context1.fillText("context1.moveTo(" + x[0] + ", " + y[0] + ")", 430, 60);
+        context1.fillText("context1.lineTo(" + x[1] + ", " + y[1] + ")", 430, 80);
+        context1.fillText("context1.lineTo(" + x[2] + ", " + y[2] + ")", 430, 100);
+        context1.stroke();
+      }
+      function num1_1(value){ document.getElementById("val1-1").innerHTML = value; x[0] = value; can1();}
+      function num1_2(value){ document.getElementById("val1-2").innerHTML = value; y[0] = value; can1();}
+      function num1_3(value){ document.getElementById("val1-3").innerHTML = value; x[1] = value; can1();}
+      function num1_4(value){ document.getElementById("val1-4").innerHTML = value; y[1] = value; can1();}
+      function num1_5(value){ document.getElementById("val1-5").innerHTML = value; x[2] = value; can1();}
+      function num1_6(value){ document.getElementById("val1-6").innerHTML = value; y[2] = value; can1();}
     </script>
+
+    <!--
     <canvas id="canvas2" width="200" height="100"></canvas>
     <script>
       var canvas2 = document.getElementById("canvas2");
@@ -296,5 +322,6 @@
       var cx = canvas.getContext("2d");
     </script>
     <br>
+    -->
   </body>
 </html>
